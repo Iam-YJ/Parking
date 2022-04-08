@@ -2,9 +2,12 @@ package com.nhnacademy.yujinpark.parking;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -36,6 +39,15 @@ public class parkingTest {
     @DisplayName("차가 들어오면 번호판을 인식(scan)합니다")
     @Test
     void scan_car_license(){
+        CarRepository carRepository = new CarRepository();
 
+        String scanInput = "가123";
+        InputStream in = new ByteArrayInputStream(scanInput.getBytes());
+        System.setIn(in);
+
+        assertEquals("가123", carRepository.scanCarNumber());
     }
+
+
+
 }

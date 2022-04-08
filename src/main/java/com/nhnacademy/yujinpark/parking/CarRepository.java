@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class CarRepository {
-
     List<Car> carList = new ArrayList<Car>();
-
     Map<Car, LocalTime> carRepository = new HashMap<Car, LocalTime>();
 
     public Car enterCar(Car car) {
@@ -18,9 +17,14 @@ public class CarRepository {
         return car;
     }
 
-    public Car getCar(){
+    public Car getCar() {
 //        return carRepository.get(car);
         System.out.println(carList.get(0));
         return carList.get(0);
+    }
+
+    public String scanCarNumber(){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.next();
     }
 }

@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46cd76db-f744-4713-bd19-d63f26b813b7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/yujinpark.parking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/CarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/CarRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/CarRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/CarRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/nhnacademy/yujinpark/parking/parkingTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/nhnacademy/yujinpark/parking/parkingTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +54,7 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.parkingTest.scan_car_license">
     <configuration name="parkingTest.enter_car_in_parkinglot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="yujinpark.parking" />
       <extension name="coverage">
@@ -69,8 +71,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="parkingTest.scan_car_license" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="yujinpark.parking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nhnacademy.yujinpark.parking" />
+      <option name="MAIN_CLASS_NAME" value="com.nhnacademy.yujinpark.parking.parkingTest" />
+      <option name="METHOD_NAME" value="scan_car_license" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.parkingTest.scan_car_license" />
         <item itemvalue="JUnit.parkingTest.enter_car_in_parkinglot" />
       </list>
     </recent_temporary>
@@ -84,7 +103,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649380953895</updated>
       <workItem from="1649380955812" duration="2337000" />
-      <workItem from="1649389066051" duration="3265000" />
+      <workItem from="1649389066051" duration="5283000" />
     </task>
     <servers />
   </component>
