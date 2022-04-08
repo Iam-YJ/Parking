@@ -54,7 +54,7 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.parkingTest.check_enter_car_is_parked_well">
+  <component name="RunManager" selected="JUnit.parkingTest.exit_car_in_parkinglot">
     <configuration name="parkingTest.check_enter_car_is_equals_in_parkinglot_car" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="yujinpark.parking" />
       <extension name="coverage">
@@ -103,6 +103,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="parkingTest.exit_car_in_parkinglot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="yujinpark.parking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nhnacademy.yujinpark.parking" />
+      <option name="MAIN_CLASS_NAME" value="com.nhnacademy.yujinpark.parking.parkingTest" />
+      <option name="METHOD_NAME" value="exit_car_in_parkinglot" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="parkingTest.scan_car_license" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="yujinpark.parking" />
       <extension name="coverage">
@@ -121,6 +137,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.parkingTest.exit_car_in_parkinglot" />
         <item itemvalue="JUnit.parkingTest.check_enter_car_is_parked_well" />
         <item itemvalue="JUnit.parkingTest.check_enter_car_is_equals_in_parkinglot_car" />
         <item itemvalue="JUnit.parkingTest.scan_car_license" />
@@ -137,7 +154,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649380953895</updated>
       <workItem from="1649380955812" duration="2337000" />
-      <workItem from="1649389066051" duration="12805000" />
+      <workItem from="1649389066051" duration="13258000" />
     </task>
     <servers />
   </component>

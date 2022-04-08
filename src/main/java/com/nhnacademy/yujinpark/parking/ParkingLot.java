@@ -26,4 +26,9 @@ public class ParkingLot {
        return false;
     }
 
+    public ParkingSpace exit(ParkingSpace parkingSpace){
+        spaces.remove(parkingSpace);
+        return parkingSpace;
+    }
+
 }
