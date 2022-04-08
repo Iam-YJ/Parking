@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="46cd76db-f744-4713-bd19-d63f26b813b7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/CarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingLot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingLot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingLot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/CarRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/ParkingService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/nhnacademy/yujinpark/parking/parkingTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/nhnacademy/yujinpark/parking/parkingTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +54,39 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.parkingTest.scan_car_license">
+  <component name="RunManager" selected="JUnit.parkingTest.check_enter_car_is_parked_well">
+    <configuration name="parkingTest.check_enter_car_is_equals_in_parkinglot_car" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="yujinpark.parking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nhnacademy.yujinpark.parking" />
+      <option name="MAIN_CLASS_NAME" value="com.nhnacademy.yujinpark.parking.parkingTest" />
+      <option name="METHOD_NAME" value="check_enter_car_is_equals_in_parkinglot_car" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="parkingTest.check_enter_car_is_parked_well" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="yujinpark.parking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nhnacademy.yujinpark.parking" />
+      <option name="MAIN_CLASS_NAME" value="com.nhnacademy.yujinpark.parking.parkingTest" />
+      <option name="METHOD_NAME" value="check_enter_car_is_parked_well" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="parkingTest.enter_car_in_parkinglot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="yujinpark.parking" />
       <extension name="coverage">
@@ -92,6 +121,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.parkingTest.check_enter_car_is_parked_well" />
+        <item itemvalue="JUnit.parkingTest.check_enter_car_is_equals_in_parkinglot_car" />
         <item itemvalue="JUnit.parkingTest.scan_car_license" />
         <item itemvalue="JUnit.parkingTest.enter_car_in_parkinglot" />
       </list>
@@ -106,7 +137,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649380953895</updated>
       <workItem from="1649380955812" duration="2337000" />
-      <workItem from="1649389066051" duration="10072000" />
+      <workItem from="1649389066051" duration="12805000" />
     </task>
     <servers />
   </component>

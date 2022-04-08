@@ -17,7 +17,13 @@ public class ParkingLot {
         return parkingSpace;
     }
 
-    public Car checkCarInParkingLot(){
-       return null;
+    public boolean checkCarInParkingLot(ParkingSpace parkingSpace){
+        for(ParkingSpace ps : spaces){
+            if(ps.getCar().equals(parkingSpace.getCar()) && ps.getCode().equals(parkingSpace.getCode())){
+                return true;
+            }
+        }
+       return false;
     }
+
 }
