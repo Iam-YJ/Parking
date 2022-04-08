@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="46cd76db-f744-4713-bd19-d63f26b813b7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/CarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/CarRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/CarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingLot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/CarRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/CarRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/CarRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/ParkingService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/nhnacademy/yujinpark/parking/parkingTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/nhnacademy/yujinpark/parking/parkingTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +46,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.nhnacademy.yujinpark.parking" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.nhnacademy.yujinpark.parking" />
     </key>
   </component>
@@ -103,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649380953895</updated>
       <workItem from="1649380955812" duration="2337000" />
-      <workItem from="1649389066051" duration="5283000" />
+      <workItem from="1649389066051" duration="10072000" />
     </task>
     <servers />
   </component>
