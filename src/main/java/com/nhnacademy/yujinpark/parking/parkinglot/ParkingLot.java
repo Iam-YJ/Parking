@@ -32,8 +32,6 @@ public class ParkingLot implements ParkingSystem {
     }
 
     public ParkingSpace exit(User user, ParkingSpace parkingSpace) {
-        // 요금 정산
-        // 사용자가 돈 있어서 나갈 수 잇는지 검사
         calculateParkingPayByUser(user, calculateExitPay(parkingSpace));
         spaces.remove(parkingSpace);
         return parkingSpace;

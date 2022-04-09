@@ -199,5 +199,11 @@ public class parkingTest {
 //            .hasMessage("money is not enough to exit parkingLot");
     }
 
+    @DisplayName("주차장 입구가 n개 입니다")
+    @Test
+    void test(){
+
+    }
+
 }
 
