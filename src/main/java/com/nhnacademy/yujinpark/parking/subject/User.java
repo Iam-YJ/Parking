@@ -1,15 +1,25 @@
 package com.nhnacademy.yujinpark.parking.subject;
 
+import com.nhnacademy.yujinpark.parking.payco.Payco;
+
 public class User {
     private String userId;
     private Money money;
     private Car car;
+    private Payco payco;
 
 
     public User(String userId, Money money, Car car) {
         this.userId = userId;
         this.money = money;
         this.car = car;
+    }
+
+    public User(String userId, Money money, Car car, Payco payco) {
+        this.userId = userId;
+        this.money = money;
+        this.car = car;
+        this.payco = payco;
     }
 
     public String getUserId() {
@@ -22,5 +32,9 @@ public class User {
 
     public Car getCar() {
         return car;
+    }
+
+    public Payco getPayco() {
+        return payco;
     }
 }

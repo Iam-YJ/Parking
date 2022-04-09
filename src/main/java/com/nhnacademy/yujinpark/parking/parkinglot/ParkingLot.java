@@ -2,16 +2,20 @@ package com.nhnacademy.yujinpark.parking.parkinglot;
 
 import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarEnterException;
 import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarExitException;
+import com.nhnacademy.yujinpark.parking.payco.Payco;
+import com.nhnacademy.yujinpark.parking.payco.PaycoDiscountable;
 import com.nhnacademy.yujinpark.parking.subject.CarSize;
 import com.nhnacademy.yujinpark.parking.subject.User;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ParkingLot implements ParkingSystem {
+public class ParkingLot implements ParkingSystem, PaycoDiscountable {
     List<ParkingSpace> spaces = new ArrayList<ParkingSpace>();
 
     public List<ParkingSpace> getSpaces() {
@@ -67,11 +71,10 @@ public class ParkingLot implements ParkingSystem {
     }
 
     @Override
-    public boolean calculateParkingPayByUser(User user, BigDecimal exitPay) {
+    public void calculateParkingPayByUser(User user, BigDecimal exitPay) {
         if (exitPay.compareTo(user.getMoney().getAmount()) == 1) {
             throw new DoNotAllowCarExitException("money is not enough to exit parkingLot");
         }
-        return true;
     }
 
     // SPEC 3
@@ -83,6 +86,7 @@ public class ParkingLot implements ParkingSystem {
         if (parkingSpace.getCar().getCarSize().equals(CarSize.SMALL)) {
             return discountSmallCarExitPay(changedGetExitPay(Math.abs(useTime)));
         }
+
         return changedGetExitPay(Math.abs(useTime));
     }
 
@@ -173,4 +177,11 @@ public class ParkingLot implements ParkingSystem {
         return new BigDecimal(String.valueOf(originalExitPay.divide(BigDecimal.valueOf(2))));
     }
 
+    @Override
+    public BigDecimal discount(User user, BigDecimal exitPay) {
+        if(user.getPayco().equals(Payco.USER)){
+            return exitPay.divide(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(9));
+        }
+        return exitPay;
+    }
 }

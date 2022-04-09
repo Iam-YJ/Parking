@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46cd76db-f744-4713-bd19-d63f26b813b7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingLot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingLot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/subject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/subject/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/parkinglot/ParkingLot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/parkinglot/ParkingLot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/parkinglot/ParkingSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/parkinglot/ParkingSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/payco/PaycoServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/payco/PaycoServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/subject/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/nhnacademy/yujinpark/parking/subject/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/nhnacademy/yujinpark/parking/parkingTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/nhnacademy/yujinpark/parking/parkingTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +26,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -70,23 +73,7 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.parkingTest.check_payco_barcode_authentication">
-    <configuration name="parkingTest.calculate_exit_car_payment_by_parking_time" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="yujinpark.parking" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.parkinglot.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nhnacademy.yujinpark.parking" />
-      <option name="MAIN_CLASS_NAME" value="com.nhnacademy.yujinpark.parking.parkingTest" />
-      <option name="METHOD_NAME" value="calculate_exit_car_payment_by_parking_time" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.parkingTest.discount_for_payco_members">
     <configuration name="parkingTest.check_changed_exit_payment_chart" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="yujinpark.parking" />
       <extension name="coverage">
@@ -151,13 +138,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="parkingTest.discount_for_payco_members" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="yujinpark.parking" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nhnacademy.yujinpark.parking" />
+      <option name="MAIN_CLASS_NAME" value="com.nhnacademy.yujinpark.parking.parkingTest" />
+      <option name="METHOD_NAME" value="discount_for_payco_members" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.parkingTest.discount_for_payco_members" />
         <item itemvalue="JUnit.parkingTest.check_payco_barcode_authentication" />
         <item itemvalue="JUnit.parkingTest.check_large_size_car_disabled_enter_parkingLot" />
         <item itemvalue="JUnit.parkingTest.check_small_car_exit_payment_discount" />
         <item itemvalue="JUnit.parkingTest.check_changed_exit_payment_chart" />
-        <item itemvalue="JUnit.parkingTest.calculate_exit_car_payment_by_parking_time" />
       </list>
     </recent_temporary>
   </component>
@@ -172,7 +175,7 @@
       <workItem from="1649380955812" duration="2337000" />
       <workItem from="1649389066051" duration="13496000" />
       <workItem from="1649469410284" duration="1395000" />
-      <workItem from="1649484556824" duration="26123000" />
+      <workItem from="1649484556824" duration="28873000" />
     </task>
     <servers />
   </component>

@@ -295,10 +295,10 @@ public class parkingTest {
         assertThatThrownBy(() -> parkingLot.enter(parkingSpace2))
             .isInstanceOf(DoNotAllowCarEnterException.class)
             .hasMessage("Large Size Car can't enter parkingLot");
-
     }
 
 
+    // TODO 에러 리팩토링
     @DisplayName("바코드 생성 후 payco 서버 인증 확인")
     @Test
     void check_payco_barcode_authentication(){
@@ -310,15 +310,28 @@ public class parkingTest {
 
         PaycoServer paycoServer = new PaycoServer();
 
-        System.out.println(paycoServer.authenticateBarcode(barcode));
         assertThat(paycoServer.authenticateBarcode(barcode)).isTrue();
     }
-    
-    
+
+    // todo bigdecimal 포멧
+    // discoutn 출차 전 계산하는데에도 넣어줘야함
     @DisplayName("사용자 payco 회원 주차 요금 10% 할인")
     @Test
-    void test2(){
+    void discount_for_payco_members(){
+        String code = "A-1";
+        String number = "A123";
 
+        Car car = new Car(number, CarSize.MEDIUM);
+        Money money = new Money(BigDecimal.valueOf(0));
+        User user = new User(number, money, car, Payco.USER);
+
+        ParkingSpace parkingSpace = new ParkingSpace(code, car, LocalDateTime.now());
+
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLot.enter(parkingSpace);
+
+        parkingSpace = new ParkingSpace(code, car, LocalDateTime.now().plusMinutes(31));
+        assertThat(parkingLot.discount(user, parkingLot.changedCalculateExitPay(parkingSpace))).isEqualTo(BigDecimal.valueOf(900));
     }
 
     @DisplayName("시간 주차권")
