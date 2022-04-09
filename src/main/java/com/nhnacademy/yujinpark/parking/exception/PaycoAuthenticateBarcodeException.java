@@ -1,6 +1,6 @@
 package com.nhnacademy.yujinpark.parking.exception;
 
-public class PaycoAuthenticateBarcodeException extends ClassNotFoundException{
+public class PaycoAuthenticateBarcodeException extends IllegalArgumentException{
     public PaycoAuthenticateBarcodeException(String s) {
         super(s);
     }

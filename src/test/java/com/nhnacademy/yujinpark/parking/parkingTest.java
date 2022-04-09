@@ -300,7 +300,6 @@ public class parkingTest {
     }
 
 
-    // TODO 에러 리팩토링
     @DisplayName("바코드 생성 후 payco 서버 인증 확인")
     @Test
     void check_payco_barcode_authentication(){
@@ -356,6 +355,18 @@ public class parkingTest {
         assertThat(parkingLot.discount(user, parkingLot.changedCalculateExitPay(parkingSpace))).isEqualTo(BigDecimal.valueOf(1000));
 
         parkingLot.discountByCoupon(parkingSpace);
+
+        /**
+         * 2시간 주차권
+         * 1시간 주차권
+         *
+         * 동시성
+         *
+         * 출차할 때 디스카운트 된 것 적용
+         *
+         * BigDecimal 포맷
+         *
+         */
 
 
     }

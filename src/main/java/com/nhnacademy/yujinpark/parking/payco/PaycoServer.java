@@ -5,10 +5,10 @@ import com.nhnacademy.yujinpark.parking.exception.PaycoAuthenticateBarcodeExcept
 public class PaycoServer {
 
     public boolean authenticateBarcode(Barcode barcode) {
-        if (barcode.getClass().equals(Barcode.class)) {
-            return true;
+        if (!barcode.getClass().equals(Barcode.class)) {
+            throw new PaycoAuthenticateBarcodeException("barcode");
         }
-        return false;
+        return true;
     }
 
 }

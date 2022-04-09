@@ -193,7 +193,5 @@ public class ParkingLot implements ParkingSystem, PaycoDiscountable {
         }
 
        changedCalculateExitPay(parkingSpace.getEntryTime().plusHours(user.getCoupon().getContext()));
-
-
     }
 }
