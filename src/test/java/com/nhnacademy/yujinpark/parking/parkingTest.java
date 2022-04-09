@@ -1,19 +1,22 @@
 package com.nhnacademy.yujinpark.parking;
 
 
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarExitException;
+import com.nhnacademy.yujinpark.parking.parkinglot.ParkingLot;
+import com.nhnacademy.yujinpark.parking.parkinglot.ParkingSpace;
+import com.nhnacademy.yujinpark.parking.subject.Car;
+import com.nhnacademy.yujinpark.parking.subject.Money;
+import com.nhnacademy.yujinpark.parking.subject.User;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
-import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.LocalDateTime;
-import jdk.swing.interop.SwingInterOpUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -90,6 +93,8 @@ public class parkingTest {
 
         Car car1 = new Car(number1);
         Car car2 = new Car(number2);
+        User user = new User("PYJ",new Money(BigDecimal.valueOf(10000)), car1);
+
         ParkingSpace parkingSpace1 = new ParkingSpace(code1, car1, LocalDateTime.now());
         ParkingSpace parkingSpace2 = new ParkingSpace(code1, car2, LocalDateTime.now());
 
@@ -98,19 +103,20 @@ public class parkingTest {
         parkingLot.enter(parkingSpace1);
         parkingLot.enter(parkingSpace2); // 차 2대 주차장에 들어옴
 
-        parkingLot.exit(parkingSpace1);
+        parkingLot.exit(user, parkingSpace1);
 
         assertThat(parkingLot.checkCarInParkingLot(parkingSpace1)).isFalse();
         assertThat(parkingLot.checkCarInParkingLot(parkingSpace2)).isTrue();
     }
 
-    @DisplayName("나가는 차의 주차 시간만큼 결제를 해야한다")
+    @DisplayName("나가는 차의 주차 시간 대비 발생한 금액 확인")
     @Test
     void calculate_exit_car_payment_by_parking_time() {
         String code = "A-1";
         String number = "A123";
 
         Car car = new Car(number);
+        // TODO 출차할 때 유저 돈 계산하기 못나가는거도 하기
         ParkingSpace parkingSpace = new ParkingSpace(code, car, LocalDateTime.now());
 
         ParkingLot parkingLot = new ParkingLot();
@@ -160,6 +166,37 @@ public class parkingTest {
         time = LocalDateTime.now().plusHours(48);
         parkingSpace = new ParkingSpace(code, car, time);
         assertThat(parkingLot.calculateExitPay(parkingSpace)).isEqualTo(BigDecimal.valueOf(20000));
+    }
+
+    @DisplayName("나가는 차의 주차요금을 사용자가 계산할 수 있는지(돈이 없으면 차가 나갈 수 없음)")
+    @Test
+    void calculate_exit_car_payment_by_user_throws_doNotAllowCarExitException() {
+        String code = "A-1";
+        String number1 = "A123";
+
+        Car car = new Car(number1);
+        Money money1 = new Money(BigDecimal.valueOf(0));
+        User user1 = new User(number1, money1, car);
+
+        ParkingSpace parkingSpace = new ParkingSpace(code, car, LocalDateTime.now().plusMinutes(30));
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLot.enter(parkingSpace);
+
+        BigDecimal exitPay = parkingLot.calculateExitPay(parkingSpace); // 1000원
+
+        // 통과해야함
+        assertThatThrownBy(() -> parkingLot.calculateParkingPayByUser(user1, exitPay))
+            .isInstanceOf(DoNotAllowCarExitException.class)
+            .hasMessage("money is not enough to exit parkingLot");
+
+        
+        Money money2 = new Money(BigDecimal.valueOf(10000));
+        User user2 = new User(number1, money2, car);
+
+        // 통과하지 않아야함
+//        assertThatThrownBy(() -> parkingLot.calculateParkingPayByUser(user2, exitPay))
+//            .isInstanceOf(DoNotAllowCarExitException.class)
+//            .hasMessage("money is not enough to exit parkingLot");
     }
 
 }

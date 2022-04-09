@@ -1,16 +1,16 @@
-package com.nhnacademy.yujinpark.parking;
+package com.nhnacademy.yujinpark.parking.parkinglot;
 
+import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarExitException;
+import com.nhnacademy.yujinpark.parking.subject.User;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ParkingLot implements ParkingSystem {
     List<ParkingSpace> spaces = new ArrayList<ParkingSpace>();
-
 
     public List<ParkingSpace> getSpaces() {
         return spaces;
@@ -31,7 +31,10 @@ public class ParkingLot implements ParkingSystem {
         return false;
     }
 
-    public ParkingSpace exit(ParkingSpace parkingSpace) {
+    public ParkingSpace exit(User user, ParkingSpace parkingSpace) {
+        // 요금 정산
+        // 사용자가 돈 있어서 나갈 수 잇는지 검사
+        calculateParkingPayByUser(user, calculateExitPay(parkingSpace));
         spaces.remove(parkingSpace);
         return parkingSpace;
     }
@@ -48,6 +51,14 @@ public class ParkingLot implements ParkingSystem {
         long useTime = Duration.between(parkingSpace.getEntryTime(), now).toSeconds();
 
         return getExitPay(Math.abs(useTime));
+    }
+
+    @Override
+    public boolean calculateParkingPayByUser(User user, BigDecimal exitPay) {
+        if(exitPay.compareTo(user.getMoney().getAmount()) == 1){
+            throw new DoNotAllowCarExitException("money is not enough to exit parkingLot");
+        }
+        return true;
     }
 
     public BigDecimal getExitPay(long useTime) {
@@ -88,4 +99,6 @@ public class ParkingLot implements ParkingSystem {
     public BigDecimal calculateDayPay(long dayCount){
         return new BigDecimal(10000*dayCount);
     }
+
+
 }

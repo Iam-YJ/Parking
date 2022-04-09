@@ -1,7 +1,8 @@
-package com.nhnacademy.yujinpark.parking;
+package com.nhnacademy.yujinpark.parking.parkinglot;
 
+import com.nhnacademy.yujinpark.parking.subject.Car;
+import com.nhnacademy.yujinpark.parking.subject.User;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 public class ParkingSpace {
     private String code;

@@ -1,4 +1,4 @@
-package com.nhnacademy.yujinpark.parking;
+package com.nhnacademy.yujinpark.parking.subject;
 
 public class Car {
     private String numer;

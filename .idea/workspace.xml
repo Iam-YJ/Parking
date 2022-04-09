@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="46cd76db-f744-4713-bd19-d63f26b813b7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingLot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingLot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingSpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/subject/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingLot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingLot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingSpace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/nhnacademy/yujinpark/parking/parkingTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/nhnacademy/yujinpark/parking/parkingTest.class" afterDir="false" />
     </list>
@@ -48,12 +49,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.nhnacademy.yujinpark.parking" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\park\Desktop\NHN\NHN_SRC\Parking\src\main\java\com\nhnacademy\yujinpark\parking\parkinglot" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.nhnacademy.yujinpark.parking" />
@@ -64,12 +68,12 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.parkingTest.calculate_exit_car_payment_by_parking_time">
+  <component name="RunManager" selected="JUnit.parkingTest">
     <configuration name="parkingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="yujinpark.parking" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.*" />
+          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.parkinglot.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,7 +88,7 @@
       <module name="yujinpark.parking" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.*" />
+          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.parkinglot.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -96,7 +100,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="parkingTest.check_enter_car_is_equals_in_parkinglot_car" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="parkingTest.calculate_exit_car_payment_by_user_throws_doNotAllowCarExitException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="yujinpark.parking" />
       <extension name="coverage">
         <pattern>
@@ -106,7 +110,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nhnacademy.yujinpark.parking" />
       <option name="MAIN_CLASS_NAME" value="com.nhnacademy.yujinpark.parking.parkingTest" />
-      <option name="METHOD_NAME" value="check_enter_car_is_equals_in_parkinglot_car" />
+      <option name="METHOD_NAME" value="calculate_exit_car_payment_by_user_throws_doNotAllowCarExitException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,7 +120,7 @@
       <module name="yujinpark.parking" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.*" />
+          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.parkinglot.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,7 +136,7 @@
       <module name="yujinpark.parking" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.*" />
+          <option name="PATTERN" value="com.nhnacademy.yujinpark.parking.parkinglot.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.parkingTest.calculate_exit_car_payment_by_parking_time" />
         <item itemvalue="JUnit.parkingTest" />
+        <item itemvalue="JUnit.parkingTest.calculate_exit_car_payment_by_user_throws_doNotAllowCarExitException" />
+        <item itemvalue="JUnit.parkingTest.calculate_exit_car_payment_by_parking_time" />
         <item itemvalue="JUnit.parkingTest.exit_car_in_parkinglot" />
         <item itemvalue="JUnit.parkingTest.check_enter_car_is_parked_well" />
-        <item itemvalue="JUnit.parkingTest.check_enter_car_is_equals_in_parkinglot_car" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +169,7 @@
       <workItem from="1649380955812" duration="2337000" />
       <workItem from="1649389066051" duration="13496000" />
       <workItem from="1649469410284" duration="1395000" />
-      <workItem from="1649484556824" duration="14161000" />
+      <workItem from="1649484556824" duration="18482000" />
     </task>
     <servers />
   </component>
@@ -187,8 +191,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/ParkingLot.java</url>
-          <line>55</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingLot.java</url>
+          <line>54</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
