@@ -291,9 +291,23 @@ public class parkingTest {
 
     }
 
+
+    @DisplayName("payco 바코드 인증 확인")
+    @Test
+    void test1(){
+
+    }
+    
+    
     @DisplayName("사용자 payco 회원 주차 요금 10% 할인")
     @Test
-    void test5(){
+    void test2(){
+
+    }
+
+    @DisplayName("시간 주차권")
+    @Test
+    void test3(){
 
     }
 
