@@ -2,6 +2,7 @@ package com.nhnacademy.yujinpark.parking.parkinglot;
 
 import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarEnterException;
 import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarExitException;
+import com.nhnacademy.yujinpark.parking.exception.UserHaveNoCoupon;
 import com.nhnacademy.yujinpark.parking.payco.Payco;
 import com.nhnacademy.yujinpark.parking.payco.PaycoDiscountable;
 import com.nhnacademy.yujinpark.parking.subject.CarSize;
@@ -183,5 +184,16 @@ public class ParkingLot implements ParkingSystem, PaycoDiscountable {
             return exitPay.divide(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(9));
         }
         return exitPay;
+    }
+
+    @Override
+    public BigDecimal discountByCoupon(User user, ParkingSpace parkingSpace){
+        if(user.getCoupon().equals(null)){
+            throw new UserHaveNoCoupon("no coupon");
+        }
+
+       changedCalculateExitPay(parkingSpace.getEntryTime().plusHours(user.getCoupon().getContext()));
+
+
     }
 }

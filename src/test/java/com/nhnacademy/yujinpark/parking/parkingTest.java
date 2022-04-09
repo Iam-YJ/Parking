@@ -10,6 +10,7 @@ import static org.mockito.Mockito.when;
 
 import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarEnterException;
 import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarExitException;
+import com.nhnacademy.yujinpark.parking.parkinglot.Coupon;
 import com.nhnacademy.yujinpark.parking.parkinglot.ParkingLot;
 import com.nhnacademy.yujinpark.parking.parkinglot.ParkingSpace;
 import com.nhnacademy.yujinpark.parking.payco.Barcode;
@@ -23,6 +24,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -334,9 +336,27 @@ public class parkingTest {
         assertThat(parkingLot.discount(user, parkingLot.changedCalculateExitPay(parkingSpace))).isEqualTo(BigDecimal.valueOf(900));
     }
 
-    @DisplayName("시간 주차권")
+    @DisplayName("2시간 주차권")
     @Test
-    void test3(){
+    void discount_for_two_time_coupon(){
+        String code = "A-1";
+        String number = "A123";
+
+        Car car = new Car(number, CarSize.MEDIUM);
+        Money money = new Money(BigDecimal.valueOf(0));
+        Coupon coupon = new Coupon(2);
+        User user = new User(number, money, car, Payco.USER, coupon);
+
+        ParkingSpace parkingSpace = new ParkingSpace(code, car, LocalDateTime.now());
+
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLot.enter(parkingSpace);
+
+        parkingSpace = new ParkingSpace(code, car, LocalDateTime.now().plusMinutes(31));
+        assertThat(parkingLot.discount(user, parkingLot.changedCalculateExitPay(parkingSpace))).isEqualTo(BigDecimal.valueOf(1000));
+
+        parkingLot.discountByCoupon(parkingSpace);
+
 
     }
 
