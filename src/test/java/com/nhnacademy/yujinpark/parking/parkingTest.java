@@ -9,6 +9,10 @@ import static org.mockito.Mockito.when;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.math.BigDecimal;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 import jdk.swing.interop.SwingInterOpUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -34,7 +38,7 @@ public class parkingTest {
 
         Car car = new Car(number);
 
-        ParkingSpace parkingSpace = new ParkingSpace(code, car);
+        ParkingSpace parkingSpace = new ParkingSpace(code, car, LocalDateTime.now());
         when(parkingLot.enter(parkingSpace)).thenReturn(parkingSpace);
 
         assertThat(parkingLot.getSpaces()).isNotNull();
@@ -51,10 +55,10 @@ public class parkingTest {
 
         Car car1 = new Car(number1);
         Car car2 = new Car(number2);
-        ParkingSpace parkingSpace1 = new ParkingSpace(code1, car1);
-        ParkingSpace parkingSpace2 = new ParkingSpace(code1, car2);
-        ParkingSpace parkingSpace3 = new ParkingSpace(code2, car1);
-        ParkingSpace parkingSpace4 = new ParkingSpace(code2, car2);
+        ParkingSpace parkingSpace1 = new ParkingSpace(code1, car1, LocalDateTime.now());
+        ParkingSpace parkingSpace2 = new ParkingSpace(code1, car2, LocalDateTime.now());
+        ParkingSpace parkingSpace3 = new ParkingSpace(code2, car1, LocalDateTime.now());
+        ParkingSpace parkingSpace4 = new ParkingSpace(code2, car2, LocalDateTime.now());
 
         ParkingLot parkingLot = new ParkingLot();
 
@@ -69,11 +73,11 @@ public class parkingTest {
     @DisplayName("차가 들어오면 번호판을 인식(scan)합니다")
     @Test
     void scanning_enter_car_license() {
-        ParkingSystem parkingSystem = new ParkingSystem();
+        ParkingLot parkingLot = new ParkingLot();
         String scanInput = "A123";
         InputStream in = new ByteArrayInputStream(scanInput.getBytes());
         System.setIn(in);
-        assertEquals("A123", parkingSystem.scanCarNumber());
+        assertEquals("A123", parkingLot.scanCarNumber());
     }
 
     @DisplayName("주차장에서 차가 나간다. 차가 제대로 나갔는지")
@@ -86,9 +90,8 @@ public class parkingTest {
 
         Car car1 = new Car(number1);
         Car car2 = new Car(number2);
-        ParkingSpace parkingSpace1 = new ParkingSpace(code1, car1);
-        ParkingSpace parkingSpace2 = new ParkingSpace(code1, car2);
-
+        ParkingSpace parkingSpace1 = new ParkingSpace(code1, car1, LocalDateTime.now());
+        ParkingSpace parkingSpace2 = new ParkingSpace(code1, car2, LocalDateTime.now());
 
         ParkingLot parkingLot = new ParkingLot();
 
@@ -103,9 +106,61 @@ public class parkingTest {
 
     @DisplayName("나가는 차의 주차 시간만큼 결제를 해야한다")
     @Test
-    void test3() {
+    void calculate_exit_car_payment_by_parking_time() {
+        String code = "A-1";
+        String number = "A123";
 
+        Car car = new Car(number);
+        ParkingSpace parkingSpace = new ParkingSpace(code, car, LocalDateTime.now());
+
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLot.enter(parkingSpace);
+
+        // 29분 주차
+        LocalDateTime time = LocalDateTime.now().plusMinutes(29);
+        parkingSpace = new ParkingSpace(code, car, time);
+        assertThat(parkingLot.calculateExitPay(parkingSpace)).isEqualTo(BigDecimal.valueOf(1000));
+
+        // 30분 주차
+        time = LocalDateTime.now().plusMinutes(30);
+        parkingSpace = new ParkingSpace(code, car, time);
+        assertThat(parkingLot.calculateExitPay(parkingSpace)).isEqualTo(BigDecimal.valueOf(1000));
+
+        // 31분 주차
+        time = LocalDateTime.now().plusMinutes(31);
+        parkingSpace = new ParkingSpace(code, car, time);
+        assertThat(parkingLot.calculateExitPay(parkingSpace)).isEqualTo(BigDecimal.valueOf(1500));
+
+        // 50분 주차
+        time = LocalDateTime.now().plusMinutes(50);
+        parkingSpace = new ParkingSpace(code, car, time);
+        assertThat(parkingLot.calculateExitPay(parkingSpace)).isEqualTo(BigDecimal.valueOf(2000));
+
+        // 61분 주차
+        time = LocalDateTime.now().plusMinutes(61);
+        parkingSpace = new ParkingSpace(code, car, time);
+        assertThat(parkingLot.calculateExitPay(parkingSpace)).isEqualTo(BigDecimal.valueOf(3000));
+
+        // 6시간 주차
+        time = LocalDateTime.now().plusHours(6);
+        parkingSpace = new ParkingSpace(code, car, time);
+        assertThat(parkingLot.calculateExitPay(parkingSpace)).isEqualTo(BigDecimal.valueOf(10000));
+
+        // 1일 주차
+        time = LocalDateTime.now().plusHours(24);
+        parkingSpace = new ParkingSpace(code, car, time);
+        assertThat(parkingLot.calculateExitPay(parkingSpace)).isEqualTo(BigDecimal.valueOf(10000));
+
+        // 1일 1시간 주차
+        time = LocalDateTime.now().plusHours(25);
+        parkingSpace = new ParkingSpace(code, car, time);
+        assertThat(parkingLot.calculateExitPay(parkingSpace)).isEqualTo(BigDecimal.valueOf(13000));
+
+        // 2일 주차
+        time = LocalDateTime.now().plusHours(48);
+        parkingSpace = new ParkingSpace(code, car, time);
+        assertThat(parkingLot.calculateExitPay(parkingSpace)).isEqualTo(BigDecimal.valueOf(20000));
     }
 
-
 }
+

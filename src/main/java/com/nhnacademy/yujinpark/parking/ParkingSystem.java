@@ -1,12 +1,11 @@
 package com.nhnacademy.yujinpark.parking;
 
-import java.util.Scanner;
+import java.math.BigDecimal;
 
-public class ParkingSystem {
+interface ParkingSystem {
 
-    public String scanCarNumber(){
-        Scanner scanner = new Scanner(System.in);
-        return scanner.next();
-    }
+    String scanCarNumber();
+
+    BigDecimal calculateExitPay(ParkingSpace parkingSpace);
 
 }
