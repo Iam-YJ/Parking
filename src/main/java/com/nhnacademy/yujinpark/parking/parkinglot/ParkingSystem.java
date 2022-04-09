@@ -7,8 +7,18 @@ interface ParkingSystem {
 
     String scanCarNumber();
 
+    ParkingSpace enter(ParkingSpace parkingSpace);
+
+    ParkingSpace exit(User user, ParkingSpace parkingSpace);
+
     BigDecimal calculateExitPay(ParkingSpace parkingSpace);
 
     boolean calculateParkingPayByUser(User user, BigDecimal exitPay);
+
+    // SPEC 3
+    BigDecimal changedCalculateExitPay(ParkingSpace parkingSpace);
+
+    // SPEC 3
+    boolean checkCarSize(ParkingSpace parkingSpace);
 
 }

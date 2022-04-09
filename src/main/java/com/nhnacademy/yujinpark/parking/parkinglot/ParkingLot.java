@@ -1,6 +1,8 @@
 package com.nhnacademy.yujinpark.parking.parkinglot;
 
+import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarEnterException;
 import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarExitException;
+import com.nhnacademy.yujinpark.parking.subject.CarSize;
 import com.nhnacademy.yujinpark.parking.subject.User;
 import java.math.BigDecimal;
 import java.time.Duration;
@@ -16,9 +18,21 @@ public class ParkingLot implements ParkingSystem {
         return spaces;
     }
 
+    @Override
     public ParkingSpace enter(ParkingSpace parkingSpace) {
+        if(parkingSpace.getCar().getCarSize().equals(CarSize.LARGE)){
+            throw new DoNotAllowCarEnterException("Large Size Car can't enter parkingLot");
+        }
         spaces.add(parkingSpace);
         return parkingSpace;
+    }
+
+    @Override
+    public boolean checkCarSize(ParkingSpace parkingSpace) {
+        if(parkingSpace.getCar().getCarSize().equals(CarSize.LARGE)){
+            return false;
+        }
+        return true;
     }
 
     public boolean checkCarInParkingLot(ParkingSpace parkingSpace) {
@@ -31,6 +45,7 @@ public class ParkingLot implements ParkingSystem {
         return false;
     }
 
+    @Override
     public ParkingSpace exit(User user, ParkingSpace parkingSpace) {
         calculateParkingPayByUser(user, calculateExitPay(parkingSpace));
         spaces.remove(parkingSpace);
@@ -53,11 +68,24 @@ public class ParkingLot implements ParkingSystem {
 
     @Override
     public boolean calculateParkingPayByUser(User user, BigDecimal exitPay) {
-        if(exitPay.compareTo(user.getMoney().getAmount()) == 1){
+        if (exitPay.compareTo(user.getMoney().getAmount()) == 1) {
             throw new DoNotAllowCarExitException("money is not enough to exit parkingLot");
         }
         return true;
     }
+
+    // SPEC 3
+    @Override
+    public BigDecimal changedCalculateExitPay(ParkingSpace parkingSpace) {
+        LocalDateTime now = LocalDateTime.now();
+        long useTime = Duration.between(parkingSpace.getEntryTime(), now).toSeconds();
+
+        if (parkingSpace.getCar().getCarSize().equals(CarSize.SMALL)) {
+            return discountSmallCarExitPay(changedGetExitPay(Math.abs(useTime)));
+        }
+        return changedGetExitPay(Math.abs(useTime));
+    }
+
 
     public BigDecimal getExitPay(long useTime) {
         long payTime = useTime / 60;
@@ -65,8 +93,8 @@ public class ParkingLot implements ParkingSystem {
         BigDecimal pay = new BigDecimal(0.0);
 
         if (payTime >= 1440) {
-            long dayCount = (int)(payTime / 1440);
-            payTime = payTime - (1440*dayCount);
+            long dayCount = (int) (payTime / 1440);
+            payTime = payTime - (1440 * dayCount);
 
             return pay.add(calculatePay(payTime)).add(calculateDayPay(dayCount));
         }
@@ -87,16 +115,62 @@ public class ParkingLot implements ParkingSystem {
         return inputPay;
     }
 
-    public BigDecimal calculatePay(long payTime){
+    public BigDecimal calculatePay(long payTime) {
         BigDecimal pay = new BigDecimal(0.0);
 
         payTime = (long) Math.ceil((payTime) / 10.0);
         return pay.add(dailyMaximumPay(BigDecimal.valueOf((500 * payTime))));
     }
 
-    public BigDecimal calculateDayPay(long dayCount){
-        return new BigDecimal(10000*dayCount);
+    public BigDecimal calculateDayPay(long dayCount) {
+        return new BigDecimal(10000 * dayCount);
     }
 
+    // SPEC 3
+    public BigDecimal changedGetExitPay(long useTime) {
+        long payTime = useTime / 60;
+
+        BigDecimal pay = new BigDecimal(0.0);
+
+        if (payTime >= 1440) {
+            long dayCount = (int) (payTime / 1440);
+            payTime = payTime - (1440 * dayCount);
+
+            return pay.add(calculatePay(payTime)).add(changedCalculateDayPay(dayCount));
+        }
+
+        if (payTime <= 30) {
+            return pay.add(changedDailyMaximumPay(BigDecimal.valueOf(0)));
+
+        }
+
+        if (payTime > 30 && payTime <= 60) {
+            return pay.add(changedDailyMaximumPay(BigDecimal.valueOf(1000)));
+
+        } else {
+            payTime -= 60;
+            return changedDailyMaximumPay(
+                calculatePay(payTime).add(BigDecimal.valueOf(1000)));
+        }
+    }
+
+    // SPEC 3
+    public BigDecimal changedDailyMaximumPay(BigDecimal inputPay) {
+        if (inputPay.compareTo(BigDecimal.valueOf(15000)) == 1) {
+            inputPay = BigDecimal.valueOf(15000);
+        }
+        return inputPay;
+    }
+
+
+    // SPEC 3
+    public BigDecimal changedCalculateDayPay(long dayCount) {
+        return new BigDecimal(15000 * dayCount);
+    }
+
+    // SPEC 3
+    public BigDecimal discountSmallCarExitPay(BigDecimal originalExitPay) {
+        return new BigDecimal(String.valueOf(originalExitPay.divide(BigDecimal.valueOf(2))));
+    }
 
 }
