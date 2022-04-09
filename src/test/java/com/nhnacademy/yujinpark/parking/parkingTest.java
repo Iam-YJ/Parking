@@ -199,11 +199,39 @@ public class parkingTest {
 //            .hasMessage("money is not enough to exit parkingLot");
     }
 
+    // FIXME 싱크로나이즈드 큐로 동시성 할 수 있당
     @DisplayName("주차장 입구가 n개 입니다")
     @Test
     void test(){
 
     }
+
+    @DisplayName("요금표가 변경되었습니다")
+    @Test
+    void check_changed_exit_payment_chart(){
+
+
+
+    }
+
+    @DisplayName("경차 요금 감면 확인")
+    @Test
+    void test3(){
+
+    }
+
+    @DisplayName("대형차 주차 불가 확인")
+    @Test
+    void test4(){
+
+    }
+
+    @DisplayName("사용자 payco 회원 주차 요금 10% 할인")
+    @Test
+    void test5(){
+
+    }
+
 
 }
 
