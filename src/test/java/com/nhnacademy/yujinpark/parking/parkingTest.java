@@ -1,6 +1,7 @@
 package com.nhnacademy.yujinpark.parking;
 
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,6 +12,9 @@ import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarEnterException;
 import com.nhnacademy.yujinpark.parking.exception.DoNotAllowCarExitException;
 import com.nhnacademy.yujinpark.parking.parkinglot.ParkingLot;
 import com.nhnacademy.yujinpark.parking.parkinglot.ParkingSpace;
+import com.nhnacademy.yujinpark.parking.payco.Barcode;
+import com.nhnacademy.yujinpark.parking.payco.Payco;
+import com.nhnacademy.yujinpark.parking.payco.PaycoServer;
 import com.nhnacademy.yujinpark.parking.subject.Car;
 import com.nhnacademy.yujinpark.parking.subject.CarSize;
 import com.nhnacademy.yujinpark.parking.subject.Money;
@@ -26,10 +30,13 @@ import org.junit.jupiter.api.Test;
 public class parkingTest {
 
     private ParkingLot parkingLot;
+    private PaycoServer paycoServer;
+    private Barcode barcode;
 
     @BeforeEach
     void setUp() {
         parkingLot = mock(ParkingLot.class);
+        barcode = mock(Barcode.class);
     }
 
 
@@ -292,10 +299,19 @@ public class parkingTest {
     }
 
 
-    @DisplayName("payco 바코드 인증 확인")
+    @DisplayName("바코드 생성 후 payco 서버 인증 확인")
     @Test
-    void test1(){
+    void check_payco_barcode_authentication(){
+        String code = "IIIIIIIIII";
 
+        Barcode barcode = new Barcode(code);
+        assertThat(barcode).isInstanceOf(Barcode.class);
+        assertThat(barcode).isNotNull();
+
+        PaycoServer paycoServer = new PaycoServer();
+
+        System.out.println(paycoServer.authenticateBarcode(barcode));
+        assertThat(paycoServer.authenticateBarcode(barcode)).isTrue();
     }
     
     
