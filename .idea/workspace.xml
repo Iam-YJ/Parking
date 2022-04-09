@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46cd76db-f744-4713-bd19-d63f26b813b7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/exception/PaycoAuthenticateBarcodeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/exception/PaycoAuthenticateBarcodeException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingLot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingLot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/payco/PaycoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/payco/PaycoServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/payco/PaycoDiscountable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/payco/PaycoDiscountable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/yujinpark/parking/parkingTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/nhnacademy/yujinpark/parking/parkinglot" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -68,8 +68,8 @@
       <command value="mvn clean compile" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.parkingTest.discount_for_payco_members">
-    <configuration name="parkingTest.check_changed_exit_payment_chart" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.parkingTest">
+    <configuration name="parkingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="yujinpark.parking" />
       <extension name="coverage">
         <pattern>
@@ -79,8 +79,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nhnacademy.yujinpark.parking" />
       <option name="MAIN_CLASS_NAME" value="com.nhnacademy.yujinpark.parking.parkingTest" />
-      <option name="METHOD_NAME" value="check_changed_exit_payment_chart" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.parkingTest" />
         <item itemvalue="JUnit.parkingTest.discount_for_payco_members" />
         <item itemvalue="JUnit.parkingTest.check_payco_barcode_authentication" />
         <item itemvalue="JUnit.parkingTest.check_large_size_car_disabled_enter_parkingLot" />
         <item itemvalue="JUnit.parkingTest.check_small_car_exit_payment_discount" />
-        <item itemvalue="JUnit.parkingTest.check_changed_exit_payment_chart" />
       </list>
     </recent_temporary>
   </component>
@@ -170,7 +169,8 @@
       <workItem from="1649380955812" duration="2337000" />
       <workItem from="1649389066051" duration="13496000" />
       <workItem from="1649469410284" duration="1395000" />
-      <workItem from="1649484556824" duration="30249000" />
+      <workItem from="1649484556824" duration="30290000" />
+      <workItem from="1649517017445" duration="280000" />
     </task>
     <servers />
   </component>

@@ -65,8 +65,8 @@ public class parkingTest {
         String number1 = "A123";
         String number2 = "B123";
 
-        Car car1 = new Car(number1);
-        Car car2 = new Car(number2);
+        Car car1 = new Car(number1, CarSize.MEDIUM);
+        Car car2 = new Car(number2, CarSize.MEDIUM);
         ParkingSpace parkingSpace1 = new ParkingSpace(code1, car1, LocalDateTime.now());
         ParkingSpace parkingSpace2 = new ParkingSpace(code1, car2, LocalDateTime.now());
         ParkingSpace parkingSpace3 = new ParkingSpace(code2, car1, LocalDateTime.now());
@@ -100,8 +100,8 @@ public class parkingTest {
         String number1 = "A123";
         String number2 = "B123";
 
-        Car car1 = new Car(number1);
-        Car car2 = new Car(number2);
+        Car car1 = new Car(number1, CarSize.MEDIUM);
+        Car car2 = new Car(number2, CarSize.MEDIUM);
         User user = new User("PYJ",new Money(BigDecimal.valueOf(10000)), car1);
 
         ParkingSpace parkingSpace1 = new ParkingSpace(code1, car1, LocalDateTime.now());
@@ -124,7 +124,7 @@ public class parkingTest {
         String code = "A-1";
         String number = "A123";
 
-        Car car = new Car(number);
+        Car car = new Car(number, CarSize.MEDIUM);
         ParkingSpace parkingSpace = new ParkingSpace(code, car, LocalDateTime.now());
 
         ParkingLot parkingLot = new ParkingLot();
@@ -177,7 +177,7 @@ public class parkingTest {
         String code = "A-1";
         String number1 = "A123";
 
-        Car car = new Car(number1);
+        Car car = new Car(number1, CarSize.MEDIUM);
         Money money1 = new Money(BigDecimal.valueOf(0));
         User user1 = new User(number1, money1, car);
 
@@ -215,7 +215,7 @@ public class parkingTest {
         String code = "A-1";
         String number = "A123";
 
-        Car car = new Car(number);
+        Car car = new Car(number, CarSize.MEDIUM);
         ParkingSpace parkingSpace = new ParkingSpace(code, car, LocalDateTime.now());
 
         ParkingLot parkingLot = new ParkingLot();
@@ -354,7 +354,7 @@ public class parkingTest {
         parkingSpace = new ParkingSpace(code, car, LocalDateTime.now().plusMinutes(31));
         assertThat(parkingLot.discount(user, parkingLot.changedCalculateExitPay(parkingSpace))).isEqualTo(BigDecimal.valueOf(1000));
 
-        parkingLot.discountByCoupon(parkingSpace);
+//        parkingLot.discountByCoupon(parkingSpace);
 
         /**
          * 2시간 주차권

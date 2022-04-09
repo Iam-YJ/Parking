@@ -186,12 +186,12 @@ public class ParkingLot implements ParkingSystem, PaycoDiscountable {
         return exitPay;
     }
 
-    @Override
-    public BigDecimal discountByCoupon(User user, ParkingSpace parkingSpace){
-        if(user.getCoupon().equals(null)){
-            throw new UserHaveNoCoupon("no coupon");
-        }
-
-       changedCalculateExitPay(parkingSpace.getEntryTime().plusHours(user.getCoupon().getContext()));
-    }
+//    @Override
+//    public BigDecimal discountByCoupon(User user, ParkingSpace parkingSpace){
+//        if(user.getCoupon().equals(null)){
+//            throw new UserHaveNoCoupon("no coupon");
+//        }
+//
+//       changedCalculateExitPay(parkingSpace.getEntryTime().plusHours(user.getCoupon().getContext()));
+//    }
 }
