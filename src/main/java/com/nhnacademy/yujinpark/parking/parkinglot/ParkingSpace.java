@@ -26,4 +26,8 @@ public class ParkingSpace {
     public LocalDateTime getEntryTime() {
         return entryTime;
     }
+
+    public void setEntryTime(LocalDateTime entryTime) {
+        this.entryTime = entryTime;
+    }
 }

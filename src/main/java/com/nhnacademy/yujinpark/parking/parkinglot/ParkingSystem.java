@@ -15,6 +15,7 @@ interface ParkingSystem {
 
     void calculateParkingPayByUser(User user, BigDecimal exitPay);
 
+
     // SPEC 3
     BigDecimal changedCalculateExitPay(ParkingSpace parkingSpace);
 

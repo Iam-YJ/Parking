@@ -3,8 +3,6 @@
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 ˆ
 Xsrc/main/java/com/nhnacademy/yujinpark/parking/exception/DoNotAllowCarExitException.java,d\a\da19e6b396ee886131c459c09ecf49d3e194da06
-{
-Ksrc/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingSpace.java,7\2\724880fd82ef5bceda51fbcfb0326e9d8765e43b
 ‰
 Ysrc/main/java/com/nhnacademy/yujinpark/parking/exception/DoNotAllowCarEnterException.java,3\f\3fa0133ebc9be3e4f6ab923dee8c787a1d56097d
 q
@@ -13,5 +11,9 @@ s
 Csrc/main/java/com/nhnacademy/yujinpark/parking/subject/CarSize.java,1\3\1313851b39854046b660835bbcb4803c3b9ccf59
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-|
-Lsrc/main/java/com/nhnacademy/yujinpark/parking/parkinglot/ParkingSystem.java,1\1\1121421647884586a9653d867aac8e0b79ce951e
+u
+Esrc/main/java/com/nhnacademy/yujinpark/parking/parkinglot/Coupon.java,d\0\d091f63612dd49623774a3336a6ef04426f8ec6b
+q
+Asrc/main/java/com/nhnacademy/yujinpark/parking/payco/Barcode.java,0\d\0d8f22d1faca909853878765449574aeb4487ec8
+o
+?src/main/java/com/nhnacademy/yujinpark/parking/payco/Payco.java,8\1\811335bb2966b2e6acac963263e18320db5e5823

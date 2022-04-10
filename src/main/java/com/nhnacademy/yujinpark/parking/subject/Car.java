@@ -4,10 +4,6 @@ public class Car {
     private String numer;
     private CarSize carSize;
 
-    public Car(String numer) {
-        this.numer = numer;
-    }
-
     public Car(String numer, CarSize carSize) {
         this.numer = numer;
         this.carSize = carSize;

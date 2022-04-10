@@ -48,7 +48,7 @@ public class parkingTest {
         String code = "A-1";
         String number = "A123";
 
-        Car car = new Car(number);
+        Car car = new Car(number, CarSize.MEDIUM);
 
         ParkingSpace parkingSpace = new ParkingSpace(code, car, LocalDateTime.now());
         when(parkingLot.enter(parkingSpace)).thenReturn(parkingSpace);
@@ -303,7 +303,7 @@ public class parkingTest {
     @DisplayName("바코드 생성 후 payco 서버 인증 확인")
     @Test
     void check_payco_barcode_authentication(){
-        String code = "IIIIIIIIII";
+        String code = "1234554321";
 
         Barcode barcode = new Barcode(code);
         assertThat(barcode).isInstanceOf(Barcode.class);
@@ -314,8 +314,6 @@ public class parkingTest {
         assertThat(paycoServer.authenticateBarcode(barcode)).isTrue();
     }
 
-    // todo bigdecimal 포멧
-    // discoutn 출차 전 계산하는데에도 넣어줘야함
     @DisplayName("사용자 payco 회원 주차 요금 10% 할인")
     @Test
     void discount_for_payco_members(){
@@ -337,7 +335,7 @@ public class parkingTest {
 
     @DisplayName("2시간 주차권")
     @Test
-    void discount_for_two_time_coupon(){
+    void discount_for_two_hour_time_coupon(){
         String code = "A-1";
         String number = "A123";
 
@@ -351,24 +349,28 @@ public class parkingTest {
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.enter(parkingSpace);
 
-        parkingSpace = new ParkingSpace(code, car, LocalDateTime.now().plusMinutes(31));
-        assertThat(parkingLot.discount(user, parkingLot.changedCalculateExitPay(parkingSpace))).isEqualTo(BigDecimal.valueOf(1000));
+        parkingSpace = new ParkingSpace(code, car, LocalDateTime.now().plusHours(3));
+        assertThat(parkingLot.discountByCoupon(user, parkingSpace)).isEqualTo(BigDecimal.valueOf(1000));
+    }
 
-//        parkingLot.discountByCoupon(parkingSpace);
+    @DisplayName("1시간 주차권")
+    @Test
+    void discount_for_one_hour_time_coupon(){
+        String code = "A-1";
+        String number = "A123";
 
-        /**
-         * 2시간 주차권
-         * 1시간 주차권
-         *
-         * 동시성
-         *
-         * 출차할 때 디스카운트 된 것 적용
-         *
-         * BigDecimal 포맷
-         *
-         */
+        Car car = new Car(number, CarSize.MEDIUM);
+        Money money = new Money(BigDecimal.valueOf(0));
+        Coupon coupon = new Coupon(1);
+        User user = new User(number, money, car, Payco.USER, coupon);
 
+        ParkingSpace parkingSpace = new ParkingSpace(code, car, LocalDateTime.now());
 
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLot.enter(parkingSpace);
+
+        parkingSpace = new ParkingSpace(code, car, LocalDateTime.now().plusMinutes(59));
+        assertThat(parkingLot.discountByCoupon(user, parkingSpace)).isEqualTo(BigDecimal.valueOf(0));
     }
 
 
