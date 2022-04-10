@@ -25,6 +25,10 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayDeque;
+import java.util.Collection;
+import java.util.Deque;
+import java.util.Iterator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -202,10 +206,31 @@ public class parkingTest {
 //            .hasMessage("money is not enough to exit parkingLot");
     }
 
-    // FIXME 싱크로나이즈드 큐로 동시성 할 수 있당
-    @DisplayName("주차장 입구가 n개 입니다")
+    @DisplayName("주차장 입구, 출구가 n개 입니다")
     @Test
-    void test(){
+    void parkigLot_have_many_entrance_and_exit(){
+        String code1 = "A-1";
+        String number1 = "A123";
+        String number2 = "B123";
+
+        Car car1 = new Car(number1, CarSize.MEDIUM);
+        Car car2 = new Car(number2, CarSize.MEDIUM);
+
+        ParkingSpace parkingSpace1 = new ParkingSpace(code1, car1, LocalDateTime.now());
+        ParkingSpace parkingSpace2 = new ParkingSpace(code1, car2, LocalDateTime.now());
+
+        Deque<ParkingSpace> upgradeParkingLot = new ArrayDeque<ParkingSpace>();
+
+        upgradeParkingLot.addFirst(parkingSpace1);
+        upgradeParkingLot.addLast(parkingSpace2);
+
+        assertThat(upgradeParkingLot).isNotEmpty();
+
+        upgradeParkingLot.removeFirst();
+        assertThat(upgradeParkingLot).isNotEmpty();
+
+        upgradeParkingLot.removeLast();
+        assertThat(upgradeParkingLot).isEmpty();
 
     }
 
@@ -372,7 +397,6 @@ public class parkingTest {
         parkingSpace = new ParkingSpace(code, car, LocalDateTime.now().plusMinutes(59));
         assertThat(parkingLot.discountByCoupon(user, parkingSpace)).isEqualTo(BigDecimal.valueOf(0));
     }
-
 
 }
 
